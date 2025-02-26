@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Local Storage</title>
+    <style>
+        body.light{background-color: #fff;color: #000;}
+        body.dark{background-color: #333;color: #fff;}
+    </style>
+</head>
+<body>
+    <h1>Toggle Button</h1>
+    <button id="toggleBtn">Click to change the background</button>
+<!-- hello -->
+    <script>
+        let body = document.body;
+
+        let theme = localStorage.getItem("theme") || "light";
+
+        body.classList.add(theme);
+
+        document.addEventListener("click", ()=>{
+            let newtheme = body.classList.contains("light") ? "dark":"light";
+            body.className = newtheme;
+            localStorage.setItem("theme",newtheme);
+        })
+
+    </script>
+</body>
+</html>
